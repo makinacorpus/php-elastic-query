@@ -111,6 +111,18 @@ abstract class Aggregation
     }
 
     /**
+     * Build response from the given raw response data
+     *
+     * @param array $data
+     *
+     * @return AggregationResponse
+     */
+    public function getResponse(array $data)
+    {
+        return new AggregationResponse($this->getName(), $data);
+    }
+
+    /**
      * Build aggregation body for query
      *
      * Returns current aggregation as an array suitable for the official Elastic

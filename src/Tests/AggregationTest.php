@@ -126,6 +126,42 @@ class AggregationTest extends \PHPUnit_Framework_TestCase
      */
     public function testGenericResponse()
     {
-        
+        // @todo
+    }
+
+    public function testGenericResponseBuckets()
+    {
+        // For example, https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-bucket-daterange-aggregation.html
+        $raw = <<<EOT
+{
+    "aggregations": {
+        "range": {
+            "buckets": [
+                {
+                    "to": 1.3437792E+12,
+                    "to_as_string": "08-2012",
+                    "doc_count": 7
+                },
+                {
+                    "from": 1.3437792E+12,
+                    "from_as_string": "08-2012",
+                    "doc_count": 2
+                }
+            ]
+        }
+    }
+}
+EOT;
+        $raw = json_decode($raw, true)['aggregations']['range'];
+        $aggregation = new GenericAggregation("range", "date_range");
+        $response = $aggregation->getResponse($raw);
+
+        $this->assertSame($raw, $response->getBody());
+        $this->assertTrue($response->hasBuckets());
+        $this->assertCount(2, $response->getBuckets());
+
+        $buckets = $response->getBuckets();
+        $this->assertSame(7, $buckets[0]->getDocCount());
+        $this->assertSame(2, $buckets[1]->getDocCount());
     }
 }
