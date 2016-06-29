@@ -40,10 +40,11 @@ class SortTest extends \PHPUnit_Framework_TestCase
     {
         $query = new Query();
 
-        $this->assertSame([], $query->toArray());
+        $this->assertSame(['query' => ['match_all' => []]], $query->toArray());
 
         $query->addSort('foo');
         $this->assertSame([
+            'query' => ['match_all' => []],
             'sort' => [
                 'foo',
             ],
@@ -51,6 +52,7 @@ class SortTest extends \PHPUnit_Framework_TestCase
 
         $query->addSort('bar', Sort::ORDER_DESC);
         $this->assertSame([
+            'query' => ['match_all' => []],
             'sort' => [
                 'foo',
                 [
@@ -65,6 +67,7 @@ class SortTest extends \PHPUnit_Framework_TestCase
         $query->addSort('c', null, Sort::MODE_MAX);
         $query->addSort('d', Sort::ORDER_ASC, Sort::MODE_MAX, Sort::MISSING_FIRST);
         $this->assertSame([
+            'query' => ['match_all' => []],
             'sort' => [
                 [
                     'c' => [

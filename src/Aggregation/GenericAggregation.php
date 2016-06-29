@@ -16,6 +16,20 @@ class GenericAggregation extends Aggregation
     private $applyCallback;
 
     /**
+     * Default constructor
+     *
+     * @param string $name
+     * @param string $type
+     */
+    public function __construct($name, $type, array $body = [], array $meta = [])
+    {
+        parent::__construct($name, $type);
+
+        $this->setBody($body);
+        $this->setMeta($meta);
+    }
+
+    /**
      * Arbitrarily set body
      *
      * @param mixed[] $body

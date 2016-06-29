@@ -98,6 +98,7 @@ class AggregationTest extends \PHPUnit_Framework_TestCase
         $query->addAggregation($aggregation);
 
         $this->assertSame([
+            'query' => ['match_all' => []],
             'aggs' => [
                 'a' => [
                     'type_a' => [

@@ -29,13 +29,11 @@ abstract class Aggregation
      *
      * @param string $name
      * @param string $type
-     * @param boolean $applyOnPostFilter
      */
-    public function __construct($name, $type, $applyOnPostFilter = false)
+    public function __construct($name, $type)
     {
         $this->name = $name;
         $this->type = $type;
-        $this->applyOnPostFilter = $applyOnPostFilter;
     }
 
     /**
