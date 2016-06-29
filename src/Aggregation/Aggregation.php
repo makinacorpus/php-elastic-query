@@ -81,6 +81,16 @@ abstract class Aggregation
     }
 
     /**
+     * Is this aggregation a bucket aggregation
+     *
+     * @return boolean
+     */
+    public function isBucketAggregation()
+    {
+        return false;
+    }
+
+    /**
      * Format body
      *
      * @return mixed[]
@@ -119,7 +129,11 @@ abstract class Aggregation
      */
     public function getResponse(array $data)
     {
-        return new AggregationResponse($this->getName(), $data);
+        if ($this->isBucketAggregation()) {
+            return new BucketAggregationResponse($this, $data);
+        } else {
+            return new AggregationResponse($this, $data);
+        }
     }
 
     /**

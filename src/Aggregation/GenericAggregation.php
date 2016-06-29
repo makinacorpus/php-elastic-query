@@ -10,10 +10,8 @@ use MakinaCorpus\ElasticSearch\Query;
  */
 class GenericAggregation extends Aggregation
 {
-    /**
-     * @var callable
-     */
     private $applyCallback;
+    private $isBucketAggregation = false;
 
     /**
      * Default constructor
@@ -58,6 +56,16 @@ class GenericAggregation extends Aggregation
     }
 
     /**
+     * Is this aggregation a bucket aggregation
+     *
+     * @return boolean
+     */
+    public function isBucketAggregation()
+    {
+        return $this->isBucketAggregation;
+    }
+
+    /**
      * Set apply callback, see Aggregation::apply() for documentation
      *
      * @param callable $callback
@@ -67,6 +75,20 @@ class GenericAggregation extends Aggregation
     public function setApplyCallback(callable $callback)
     {
         $this->applyCallback = $callback;
+
+        return $this;
+    }
+
+    /**
+     * Set the 'bucket' status of this generic aggregation
+     *
+     * @param boolean $toggle
+     *
+     * @return $this
+     */
+    public function setIsBucketAggregation($toggle = true)
+    {
+        $this->isBucketAggregation = (bool)$toggle;
 
         return $this;
     }

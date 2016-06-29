@@ -4,9 +4,6 @@ namespace MakinaCorpus\ElasticSearch;
 
 trait PartialResponseTrait
 {
-    /**
-     * @var mixed[]
-     */
     protected $body;
 
     /**

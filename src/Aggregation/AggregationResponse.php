@@ -5,76 +5,56 @@ namespace MakinaCorpus\ElasticSearch\Aggregation;
 use MakinaCorpus\ElasticSearch\PartialResponseTrait;
 
 /**
- * Represents a bucket aggregation response
+ * Represents a noon-bucket aggregation response
  */
-class AggregationResponse
+class AggregationResponse extends AbstractAggregationResponse
 {
     use PartialResponseTrait;
 
-    /**
-     * @var string
-     */
-    private $aggregationName;
-
-    /**
-     * @var Bucket[]
-     */
-    private $buckets;
+    private $children = [];
 
     /**
      * Default constructor
      *
-     * @param string $aggregationName
      * @param array $body
      */
-    public function __construct($aggregationName, array $body)
+    public function __construct(Aggregation $aggregation, array $body)
     {
+        parent::__construct($aggregation->getName());
+
         $this->body = $body;
-        $this->aggregationName = $aggregationName;
 
-        $this->buckets = $this->parseBuckets($body, $aggregationName);
+        if ($aggregation->hasAggregations()) {
+            foreach ($aggregation->getAggregations() as $child) {
+
+                $name = $child->getName();
+
+                if (!isset($body[$name])) {
+                    throw new \InvalidArgumentException(sprintf("given response body is missing the '%s' sub-aggregation response", $name));
+                }
+
+                $this->children[] = $child->getResponse($body[$name]);
+            }
+        }
     }
 
     /**
-     * Parse bucktes from given content
-     *
-     * @param mixed[] $body
-     * @param string $aggregationName
-     *
-     * @return Bucket[]
-     */
-    protected function parseBuckets($body, $aggregationName)
-    {
-        $ret = [];
-
-        if (empty($body['buckets'])) {
-            return $ret;
-        }
-
-        foreach ($body['buckets'] as $bucket) {
-            $ret[] = new Bucket($bucket);
-        }
-
-        return $ret;
-    }
-
-    /**
-     * Is there any buckets in this response
+     * Is there any children in this response
      *
      * @return boolean
      */
-    final public function hasBuckets()
+    public function hasChildren()
     {
-        return !empty($this->buckets);
+        return !empty($this->children);
     }
 
     /**
-     * Get all buckets
+     * Get the children aggregation responses
      *
-     * @return Bucket[]
+     * @return AggregationResponseInterface
      */
-    final public function getBuckets()
+    public function getChilren()
     {
-        return $this->buckets;
+        return $this->children;
     }
 }

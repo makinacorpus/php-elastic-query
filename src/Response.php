@@ -6,8 +6,7 @@ use Elasticsearch\Client;
 
 class Response
 {
-    private $body;
-    private $query;
+    use ResponseTrait;
 
     /**
      * Default constructor
@@ -20,5 +19,7 @@ class Response
     {
         $this->query = $query;
         $this->body = $body;
+
+        $this->parseHits($body);
     }
 }

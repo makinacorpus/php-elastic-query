@@ -4,6 +4,7 @@ namespace MakinaCorpus\ElasticSearch\Tests;
 
 use MakinaCorpus\ElasticSearch\Aggregation\GenericAggregation;
 use MakinaCorpus\ElasticSearch\Query;
+use MakinaCorpus\ElasticSearch\Aggregation\BucketAggregationResponse;
 
 class AggregationTest extends \PHPUnit_Framework_TestCase
 {
@@ -154,14 +155,136 @@ class AggregationTest extends \PHPUnit_Framework_TestCase
 EOT;
         $raw = json_decode($raw, true)['aggregations']['range'];
         $aggregation = new GenericAggregation("range", "date_range");
+        $aggregation->setIsBucketAggregation(true);
         $response = $aggregation->getResponse($raw);
 
-        $this->assertSame($raw, $response->getBody());
+        if (!$response instanceof BucketAggregationResponse) {
+            $this->fail();
+        }
+
         $this->assertTrue($response->hasBuckets());
         $this->assertCount(2, $response->getBuckets());
 
         $buckets = $response->getBuckets();
-        $this->assertSame(7, $buckets[0]->getDocCount());
-        $this->assertSame(2, $buckets[1]->getDocCount());
+        $this->assertSame(7, $buckets[0]->get('doc_count'));
+        $this->assertSame(2, $buckets[1]->get('doc_count'));
+
+        // Another fun one, https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-top-hits-aggregation.html
+        $raw = <<<EOT
+{
+  "aggregations": {
+    "top-tags": {
+       "buckets": [
+          {
+             "key": "windows-7",
+             "doc_count": 25365,
+             "top_tags_hits": {
+                "hits": {
+                   "total": 25365,
+                   "max_score": 1,
+                   "hits": [
+                      {
+                         "_index": "stack",
+                         "_type": "question",
+                         "_id": "602679",
+                         "_score": 1,
+                         "_source": {
+                            "title": "Windows port opening"
+                         },
+                         "sort": [
+                            1370143231177
+                         ]
+                      }
+                   ]
+                }
+             }
+          },
+          {
+             "key": "linux",
+             "doc_count": 18342,
+             "top_tags_hits": {
+                "hits": {
+                   "total": 18342,
+                   "max_score": 1,
+                   "hits": [
+                      {
+                         "_index": "stack",
+                         "_type": "question",
+                         "_id": "602672",
+                         "_score": 1,
+                         "_source": {
+                            "title": "Ubuntu RFID Screensaver lock-unlock"
+                         },
+                         "sort": [
+                            1370143379747
+                         ]
+                      }
+                   ]
+                }
+             }
+          },
+          {
+             "key": "windows",
+             "doc_count": 18119,
+             "top_tags_hits": {
+                "hits": {
+                   "total": 18119,
+                   "max_score": 1,
+                   "hits": [
+                      {
+                         "_index": "stack",
+                         "_type": "question",
+                         "_id": "602678",
+                         "_score": 1,
+                         "_source": {
+                            "title": "If I change my computers date / time, what could be affected?"
+                         },
+                         "sort": [
+                            1370142868283
+                         ]
+                      }
+                   ]
+                }
+             }
+          }
+       ]
+    }
+  }
+}
+EOT;
+        $raw = json_decode($raw, true)['aggregations']['top-tags'];
+
+        $topHitsAggregation = new GenericAggregation("top_tags_hits", "top_hits");
+        $topHitsAggregation->setIsBucketAggregation(false);
+
+        $termAggregation = new GenericAggregation("top-tags", "terms");
+        $termAggregation->addAggregation($topHitsAggregation);
+        $termAggregation->setIsBucketAggregation(true);
+
+        // The main aggregation
+
+        $response = $termAggregation->getResponse($raw);
+
+        if (!$response instanceof BucketAggregationResponse) {
+            $this->fail();
+        }
+
+        $this->assertTrue($response->hasBuckets());
+        $this->assertCount(3, $response->getBuckets());
+
+        $buckets = $response->getBuckets();
+
+        $this->assertSame(25365, $buckets[0]->get('doc_count'));
+        $this->assertSame(18342, $buckets[1]->get('doc_count'));
+        $this->assertSame(18119, $buckets[2]->get('doc_count'));
+
+        $this->assertSame("windows-7", $buckets[0]->get('key'));
+        $this->assertSame("linux", $buckets[1]->get('key'));
+        $this->assertSame("windows", $buckets[2]->get('key'));
+
+        // Since the other is a sub aggregation, we should find the results
+        // inside each bucket
+
+        print_r($response);die();
     }
 }
