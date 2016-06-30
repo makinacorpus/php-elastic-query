@@ -1,7 +1,7 @@
 {
     "name" : "makinacorpus/php-elastic-query",
     "type" : "library",
-    "description" : "Elastic search query builder and high level API",
+    "description" : "Elastic Search PHP query builder",
     "homepage" : "http://github.com/makinacorpus/php-elastic-query",
     "license" : "GPL-2",
     "authors" : [
