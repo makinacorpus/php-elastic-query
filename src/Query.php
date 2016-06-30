@@ -56,6 +56,11 @@ class Query
     private $sorts = [];
 
     /**
+     * @var string[]
+     */
+    private $sourceFields = [];
+
+    /**
      * Default constructor
      */
     public function __construct()
@@ -95,7 +100,7 @@ class Query
      *
      * @see https://www.elastic.co/guide/en/elasticsearch/guide/current/_post_filter.html
      *
-     * @return Query
+     * @return LuceneQuery
      */
     final public function getPostFilter()
     {
@@ -119,6 +124,46 @@ class Query
     public function addSort($field = Sort::FIELD_SCORE, $order = null, $mode = null, $missing = null)
     {
         $this->sorts[] = new Sort($field, $order, $mode, $missing);
+
+        return $this;
+    }
+
+    /**
+     * Add field to returned fields
+     *
+     * @param string|string[] $fields
+     *
+     * @return $this
+     */
+    public function addSourceFields($fields)
+    {
+        if (!is_array($this->sourceFields)) {
+            $this->sourceFields = [];
+        }
+
+        if (!is_array($fields)) {
+            $fields = [$fields];
+        }
+
+        foreach ($fields as $field) {
+            if (!in_array($field, $this->sourceFields)) {
+                $this->sourceFields[] = $field;
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Disable source fetch
+     *
+     * If you call setSourceFields() after this, _source will be enabled back
+     *
+     * @return $this
+     */
+    public function disableSource()
+    {
+        $this->sourceFields = false;
 
         return $this;
     }
@@ -172,12 +217,28 @@ class Query
      *
      * @return mixed[]
      */
-    public function toArray(array $query = [], array $overrides = [])
+    public function toArray(array $overrides = [])
     {
         $body = [];
 
-        if (!$this->filter->isEmpty()) {
-            if (!$this->query->isEmpty()) {
+        if ($this->filter->isEmpty()) {
+            if ($this->query->isEmpty()) {
+                $body = [
+                    'query' => [
+                        'match_all' => []
+                    ],
+                ];
+            } else {
+                $body = [
+                    'query' => [
+                        'query_string' => [
+                            'query' => (string)$this->query,
+                        ]
+                    ],
+                ];
+            }
+        } else {
+            if ($this->query->isEmpty()) {
                 $body = [
                     'query' => [
                         'constant_score' => [
@@ -218,22 +279,6 @@ class Query
                                 ],
                             ],
                         ],
-                    ],
-                ];
-            }
-        } else {
-            if ($this->query->isEmpty()) {
-                $body = [
-                    'query' => [
-                        'match_all' => []
-                    ],
-                ];
-            } else {
-                $body = [
-                    'query' => [
-                        'query_string' => [
-                            'query' => (string)$this->query,
-                        ]
                     ],
                 ];
             }

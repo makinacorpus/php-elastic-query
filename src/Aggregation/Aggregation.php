@@ -73,7 +73,7 @@ abstract class Aggregation
      * 
      * @return $this
      */
-    final public function applyOnPostFilter($toggle = true)
+    final public function setApplyOnPostFilter($toggle = true)
     {
         $this->applyOnPostFilter = (bool)$toggle;
 

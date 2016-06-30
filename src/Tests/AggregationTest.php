@@ -285,6 +285,6 @@ EOT;
         // Since the other is a sub aggregation, we should find the results
         // inside each bucket
 
-        print_r($response);die();
+        // @todo
     }
 }
