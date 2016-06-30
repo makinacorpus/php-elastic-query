@@ -2,8 +2,6 @@
 
 namespace MakinaCorpus\ElasticSearch\Aggregation;
 
-use MakinaCorpus\ElasticSearch\PartialResponseTrait;
-
 /**
  * Represents a bucket aggregation response
  */

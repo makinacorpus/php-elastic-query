@@ -2,10 +2,10 @@
 
 namespace MakinaCorpus\ElasticSearch\Tests;
 
+use MakinaCorpus\ElasticSearch\Aggregation\GenericAggregation;
 use MakinaCorpus\ElasticSearch\Query;
 use MakinaCorpus\ElasticSearch\QueryRunner;
 use MakinaCorpus\ElasticSearch\Sort;
-use MakinaCorpus\ElasticSearch\Aggregation\GenericAggregation;
 
 /**
  * Tests a few basic use cases based upon real use cases

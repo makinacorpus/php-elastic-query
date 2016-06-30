@@ -4,11 +4,10 @@ namespace MakinaCorpus\ElasticSearch;
 
 trait ResponseTrait
 {
-    use PartialResponseTrait;
-
     private $docCount = null;
     private $maxScore = null;
     private $documents = [];
+    protected $body;
 
     /**
      * Default constructor
@@ -24,10 +23,36 @@ trait ResponseTrait
     }
 
     /**
+     * Get raw aggregation body response
+     *
+     * @return mixed[]
+     */
+    final public function getBody()
+    {
+        return $this->body;
+    }
+
+    /**
+     * Get an arbitrary value in the response body
+     *
+     * @param string $name
+     *
+     * @return mixed
+     */
+    final public function get($name)
+    {
+        if (!isset($this->body[$name])) {
+            return null;
+        }
+
+        return $this->body[$name];
+    }
+
+    /**
      * Parse hits from response
      *
      * @return Document[]
-     *
+     */
     final protected function parseHits($body)
     {
         if (isset($body['hits']['total'])) {
@@ -48,7 +73,7 @@ trait ResponseTrait
      * Get total doc count
      *
      * @return int
-     *
+     */
     final public function getDocCount()
     {
         if (null === $this->docCount) {
@@ -62,7 +87,7 @@ trait ResponseTrait
      * Get max score
      *
      * @return int
-     *
+     */
     final public function getMaxScore()
     {
         return $this->maxScore;
@@ -72,7 +97,7 @@ trait ResponseTrait
      * Is there any hits in this response
      *
      * @return boolean
-     *
+     */
     final public function hasHits()
     {
         return !empty($this->documents);
@@ -82,7 +107,7 @@ trait ResponseTrait
      * Get all hits
      *
      * @return Document[]
-     *
+     */
     final public function getHits()
     {
         return $this->documents;

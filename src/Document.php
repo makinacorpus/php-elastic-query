@@ -2,8 +2,6 @@
 
 namespace MakinaCorpus\ElasticSearch;
 
-use Elasticsearch\Client;
-
 /**
  * Represents a response document
  */
@@ -14,6 +12,25 @@ final class Document
     private $id;
     private $score = 1;
     private $source = [];
+
+    public function __construct(array $body = [])
+    {
+        if (isset($body['_index'])) {
+            $this->index = $body['_index'];
+        }
+        if (isset($body['_type'])) {
+            $this->type = $body['_type'];
+        }
+        if (isset($body['_id'])) {
+            $this->id = $body['_id'];
+        }
+        if (isset($body['_score'])) {
+            $this->score = $body['_score'];
+        }
+        if (isset($body['_source'])) {
+            $this->source = $body['_source'];
+        }
+    }
 
     public function getIndex()
     {
@@ -38,6 +55,11 @@ final class Document
     public function getSource()
     {
         return $this->source;
+    }
+
+    public function getSourceFieldNames()
+    {
+        return array_keys($this->source);
     }
 
     public function get($name)

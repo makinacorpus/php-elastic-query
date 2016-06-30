@@ -125,7 +125,7 @@ abstract class Aggregation
      *
      * @param array $data
      *
-     * @return AggregationResponse
+     * @return AggregationResponseInterface
      */
     public function getResponse(array $data)
     {

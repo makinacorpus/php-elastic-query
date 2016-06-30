@@ -352,6 +352,6 @@ class QueryRunner
      */
     public function execute(Query $query, array $request = [])
     {
-        return new Response($this, $this->client->search($this->toArray($query, $request)));
+        return new Response($this, $query, $this->client->search($this->toArray($query, $request)));
     }
 }

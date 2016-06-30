@@ -1,0 +1,793 @@
+{
+  "took": 27,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "failed": 0
+  },
+  "hits": {
+    "total": 625,
+    "max_score": 1,
+    "hits": [
+      {
+        "_index": "private",
+        "_type": "node",
+        "_id": "5",
+        "_score": 1,
+        "_source": {
+          "title": "Gabarit Union - Page d'accueil",
+          "id": "5",
+          "owner": "15",
+          "created": "2016-05-30T17:11:45+0000",
+          "updated": "1970-01-01T00:00:00+0000",
+          "type": "homepage",
+          "body": [
+            "01 23 45 67 89"
+          ],
+          "status": 1,
+          "tags": [
+            
+          ],
+          "is_starred": false,
+          "is_flagged": false,
+          "is_global": true,
+          "is_group": false,
+          "is_locked": false,
+          "node_access": [
+            "ucms_site_ro:0",
+            "ucms_global:0",
+            "ucms_global_view:0",
+            "ucms_public:1",
+            "ucms_site_ro:1",
+            "ucms_site:1"
+          ],
+          "site_id": [
+            "1"
+          ]
+        }
+      },
+      {
+        "_index": "private",
+        "_type": "node",
+        "_id": "6",
+        "_score": 1,
+        "_source": {
+          "title": "Gabarit SSAM - Page d'accueil",
+          "id": "6",
+          "owner": "15",
+          "created": "2016-05-30T17:11:45+0000",
+          "updated": "2016-06-02T20:02:26+0000",
+          "type": "homepage",
+          "body": [
+            "01 23 45 67 89"
+          ],
+          "status": 1,
+          "tags": [
+            
+          ],
+          "is_starred": false,
+          "is_flagged": false,
+          "is_global": true,
+          "is_group": false,
+          "is_locked": false,
+          "node_access": [
+            "ucms_site_ro:0",
+            "ucms_global:0",
+            "ucms_global_view:0",
+            "ucms_public:2",
+            "ucms_site_ro:2",
+            "ucms_site:2",
+            "ucms_public:15",
+            "ucms_site_ro:15",
+            "ucms_site:15"
+          ],
+          "site_id": [
+            "2",
+            "15"
+          ]
+        }
+      },
+      {
+        "_index": "private",
+        "_type": "node",
+        "_id": "7",
+        "_score": 1,
+        "_source": {
+          "title": "Gabarit Fili\u00e8re - Page d'accueil",
+          "id": "7",
+          "owner": "15",
+          "created": "2016-05-30T17:11:45+0000",
+          "updated": "2016-06-02T20:39:05+0000",
+          "type": "homepage",
+          "body": [
+            "01 23 45 67 89"
+          ],
+          "status": 1,
+          "tags": [
+            
+          ],
+          "is_starred": false,
+          "is_flagged": false,
+          "is_global": true,
+          "is_group": false,
+          "is_locked": false,
+          "node_access": [
+            "ucms_site_ro:0",
+            "ucms_global:0",
+            "ucms_global_view:0",
+            "ucms_public:3",
+            "ucms_site_ro:3",
+            "ucms_site:3"
+          ],
+          "site_id": [
+            "3"
+          ]
+        }
+      },
+      {
+        "_index": "private",
+        "_type": "node",
+        "_id": "8",
+        "_score": 1,
+        "_source": {
+          "title": "Page d'accueil d'Union centre val de Loire",
+          "id": "8",
+          "owner": "13",
+          "created": "2016-05-30T17:11:45+0000",
+          "updated": "1970-01-01T00:00:00+0000",
+          "type": "homepage",
+          "body": [
+            "01 23 45 56 78"
+          ],
+          "status": 1,
+          "tags": [
+            
+          ],
+          "is_starred": false,
+          "is_flagged": false,
+          "is_global": false,
+          "is_group": false,
+          "is_locked": false,
+          "node_access": [
+            "ucms_site_ro:0",
+            "ucms_site_other:0",
+            "ucms_public:4",
+            "ucms_site_ro:4",
+            "ucms_site:4"
+          ],
+          "site_id": [
+            "4"
+          ]
+        }
+      },
+      {
+        "_index": "private",
+        "_type": "node",
+        "_id": "9",
+        "_score": 1,
+        "_source": {
+          "title": "Etablissement soins de suite et de r\u00e9adaptation cardio-vasculaire",
+          "id": "9",
+          "owner": "13",
+          "created": "2016-05-30T17:11:45+0000",
+          "updated": "1970-01-01T00:00:00+0000",
+          "type": "homepage",
+          "body": [
+            "01 23 45 56 78",
+            "\u00ab Bienvenue \u00e0 Bois Gibert Lorem ipsum dolor sit amet, consectetur\nadipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\nmagnaaliqua. Ut enim ad minim veniam, quis nostrud\nD\u00e9couvrir l'\u00e9tablissement"
+          ],
+          "status": 1,
+          "tags": [
+            
+          ],
+          "is_starred": false,
+          "is_flagged": false,
+          "is_global": false,
+          "is_group": false,
+          "is_locked": false,
+          "node_access": [
+            "ucms_site_ro:0",
+            "ucms_site_other:0",
+            "ucms_public:5",
+            "ucms_site_ro:5",
+            "ucms_site:5",
+            "ucms_public:7",
+            "ucms_site_ro:7",
+            "ucms_site:7"
+          ],
+          "site_id": [
+            "5",
+            "7"
+          ]
+        }
+      },
+      {
+        "_index": "private",
+        "_type": "node",
+        "_id": "10",
+        "_score": 1,
+        "_source": {
+          "title": "Page d'accueil d'Enfance-Famille",
+          "id": "10",
+          "owner": "13",
+          "created": "2016-05-30T17:11:45+0000",
+          "updated": "1970-01-01T00:00:00+0000",
+          "type": "homepage",
+          "body": [
+            
+          ],
+          "status": 1,
+          "tags": [
+            
+          ],
+          "is_starred": false,
+          "is_flagged": false,
+          "is_global": false,
+          "is_group": false,
+          "is_locked": false,
+          "node_access": [
+            "ucms_site_ro:0",
+            "ucms_site_other:0",
+            "ucms_public:6",
+            "ucms_site_ro:6",
+            "ucms_site:6"
+          ],
+          "site_id": [
+            "6"
+          ]
+        }
+      },
+      {
+        "_index": "private",
+        "_type": "node",
+        "_id": "12",
+        "_score": 1,
+        "_source": {
+          "title": "example - Firefox are so cute!",
+          "id": "12",
+          "owner": "6",
+          "created": "2016-05-30T17:11:45+0000",
+          "updated": "2016-05-31T14:30:46+0000",
+          "type": "image",
+          "body": [
+            "",
+            "",
+            ""
+          ],
+          "status": 1,
+          "tags": [
+            
+          ],
+          "is_starred": false,
+          "is_flagged": false,
+          "is_global": false,
+          "is_group": false,
+          "is_locked": false,
+          "node_access": [
+            "ucms_site_ro:0",
+            "ucms_site_other:0",
+            "ucms_public:5",
+            "ucms_site_ro:5",
+            "ucms_site:5"
+          ],
+          "site_id": [
+            "5"
+          ]
+        }
+      },
+      {
+        "_index": "private",
+        "_type": "node",
+        "_id": "13",
+        "_score": 1,
+        "_source": {
+          "title": "example - Ch\u00e2teau",
+          "id": "13",
+          "owner": "6",
+          "created": "2016-05-30T17:11:45+0000",
+          "updated": "2016-05-31T14:30:50+0000",
+          "type": "image",
+          "body": [
+            "",
+            "",
+            ""
+          ],
+          "status": 1,
+          "tags": [
+            
+          ],
+          "is_starred": false,
+          "is_flagged": false,
+          "is_global": false,
+          "is_group": false,
+          "is_locked": false,
+          "node_access": [
+            "ucms_site_ro:0",
+            "ucms_site_other:0",
+            "ucms_public:7",
+            "ucms_site_ro:7",
+            "ucms_site:7"
+          ],
+          "site_id": [
+            "7"
+          ]
+        }
+      },
+      {
+        "_index": "private",
+        "_type": "node",
+        "_id": "14",
+        "_score": 1,
+        "_source": {
+          "title": "example - Arbre",
+          "id": "14",
+          "owner": "6",
+          "created": "2016-05-30T17:11:45+0000",
+          "updated": "2016-05-31T14:30:55+0000",
+          "type": "image",
+          "body": [
+            "",
+            ""
+          ],
+          "status": 1,
+          "tags": [
+            
+          ],
+          "is_starred": false,
+          "is_flagged": false,
+          "is_global": false,
+          "is_group": false,
+          "is_locked": false,
+          "node_access": [
+            "ucms_site_ro:0",
+            "ucms_site_other:0",
+            "ucms_public:5",
+            "ucms_site_ro:5",
+            "ucms_site:5"
+          ],
+          "site_id": [
+            "5"
+          ]
+        }
+      },
+      {
+        "_index": "private",
+        "_type": "node",
+        "_id": "15",
+        "_score": 1,
+        "_source": {
+          "title": "example - Montagne",
+          "id": "15",
+          "owner": "6",
+          "created": "2016-05-30T17:11:45+0000",
+          "updated": "2016-05-31T14:31:01+0000",
+          "type": "image",
+          "body": [
+            
+          ],
+          "status": 1,
+          "tags": [
+            
+          ],
+          "is_starred": false,
+          "is_flagged": false,
+          "is_global": false,
+          "is_group": false,
+          "is_locked": false,
+          "node_access": [
+            "ucms_site_ro:0",
+            "ucms_site_other:0",
+            "ucms_public:5",
+            "ucms_site_ro:5",
+            "ucms_site:5"
+          ],
+          "site_id": [
+            "5"
+          ]
+        }
+      }
+    ]
+  },
+  "aggregations": {
+    "type_count": {
+      "value": 625
+    },
+    "terms": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 57,
+      "buckets": [
+        {
+          "key": "image",
+          "doc_count": 279,
+          "type_top_hits": {
+            "hits": {
+              "total": 279,
+              "max_score": 1,
+              "hits": [
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "12",
+                  "_score": 1,
+                  "_source": {
+                    "title": "example - Firefox are so cute!"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "13",
+                  "_score": 1,
+                  "_source": {
+                    "title": "example - Ch\u00e2teau"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "14",
+                  "_score": 1,
+                  "_source": {
+                    "title": "example - Arbre"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "page",
+          "doc_count": 99,
+          "type_top_hits": {
+            "hits": {
+              "total": 99,
+              "max_score": 1,
+              "hits": [
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "61",
+                  "_score": 1,
+                  "_source": {
+                    "title": "EXEMPLE DE - Exemple de page \u00e9ditoriale"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "62",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple de page m\u00e9tier (page \u00e9ditoriale)"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "63",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple de page \u00e9ditoriale"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "slideshow",
+          "doc_count": 57,
+          "type_top_hits": {
+            "hits": {
+              "total": 57,
+              "max_score": 1,
+              "hits": [
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "183",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple de slideshow"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "184",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple de slideshow"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "185",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple de slideshow"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "ssam",
+          "doc_count": 36,
+          "type_top_hits": {
+            "hits": {
+              "total": 36,
+              "max_score": 1,
+              "hits": [
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "176",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple d'\u00e9tablissement"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "177",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple d'\u00e9tablissement"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "178",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple d'\u00e9tablissement"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "list_tree",
+          "doc_count": 30,
+          "type_top_hits": {
+            "hits": {
+              "total": 30,
+              "max_score": 1,
+              "hits": [
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "116",
+                  "_score": 1,
+                  "_source": {
+                    "title": "EXEMPLE DE - Services"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "117",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Services"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "118",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Services"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "list_type",
+          "doc_count": 17,
+          "type_top_hits": {
+            "hits": {
+              "total": 17,
+              "max_score": 1,
+              "hits": [
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "130",
+                  "_score": 1,
+                  "_source": {
+                    "title": "EXEMPLE DE - Actualit\u00e9s"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "131",
+                  "_score": 1,
+                  "_source": {
+                    "title": "EXEMPLE DE - \u00c9v\u00e9nements"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "132",
+                  "_score": 1,
+                  "_source": {
+                    "title": "EXEMPLE DE - Actualit\u00e9s"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "event",
+          "doc_count": 13,
+          "type_top_hits": {
+            "hits": {
+              "total": 13,
+              "max_score": 1,
+              "hits": [
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "44",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple d'\u00e9v\u00e9nement"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "45",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple d'\u00e9v\u00e9nement"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "46",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple d'\u00e9v\u00e9nement"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "job",
+          "doc_count": 13,
+          "type_top_hits": {
+            "hits": {
+              "total": 13,
+              "max_score": 1,
+              "hits": [
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "54",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Charg\u00e9(e) de Mission Actions Solidaires"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "55",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Gestionnaire Sant\u00e9 H\/F"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "56",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Conseiller \"<h1>Commercial Agence<\/h1> '<script>alert('xss');<\/script> H\/F"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "menu",
+          "doc_count": 12,
+          "type_top_hits": {
+            "hits": {
+              "total": 12,
+              "max_score": 1,
+              "hits": [
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "148",
+                  "_score": 1,
+                  "_source": {
+                    "title": "EXEMPLE DE - Main menu"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "149",
+                  "_score": 1,
+                  "_source": {
+                    "title": "EXEMPLE DE - Footer menu"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "150",
+                  "_score": 1,
+                  "_source": {
+                    "title": "EXEMPLE DE - Main menu"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "key": "news",
+          "doc_count": 12,
+          "type_top_hits": {
+            "hits": {
+              "total": 12,
+              "max_score": 1,
+              "hits": [
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "109",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple d'actualit\u00e9"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "110",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple d'actualit\u00e9"
+                  }
+                },
+                {
+                  "_index": "private",
+                  "_type": "node",
+                  "_id": "111",
+                  "_score": 1,
+                  "_source": {
+                    "title": "Exemple d'actualit\u00e9"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
